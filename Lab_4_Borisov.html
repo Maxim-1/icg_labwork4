@@ -14,6 +14,7 @@
  <Scene>
     <Viewpoint position="0 2 17"></Viewpoint>   
     <Background backurl="https://img3.goodfon.ru/original/800x480/a/fa/kollazh-zima-snezhinka-otkrytka.jpg"></Background>
+    <DirectionalLight direction="0 2 0" intensity="0.3""></DirectionalLight>
     <NavigationInfo avatarSize=0.25 2 2 0" type="WALK" speed="1"></NavigationInfo> 
      
 
@@ -54,16 +55,17 @@
  keyValue="1 0 0, 0 1 0, 0 0 1, 1 0 0">
  </ColorInterpolator>
  <Shape>
- <Appearance>
- <Material DEF="Mat" diffuseColor="0 1 0"></Material>
- </Appearance>
+   <Appearance>
+    <Material DEF="Mat" diffuseColor="0 1 0"></Material>
+   </Appearance>
       <cone height="3.5" radius="0.8"></cone>
      </shape>
 
-<ROUTE fromNode="Time" fromField="fraction_changed"
+ <ROUTE fromNode="Time" fromField="fraction_changed"
  toNode="ColInt" toField="set_fraction"></ROUTE>
  <ROUTE fromNode="ColInt" fromField="value_changed"
  toNode="Mat" toField="set_diffuseColor"></ROUTE>
+
 
 <!--Елка ствол--> 
  <Transform translation="0 -1.99 0">
@@ -144,11 +146,8 @@
  </Anchor>
  </Transform>
 
- </transform>
-
- <DirectionalLight direction="0 2 0" intensity="0.3""></DirectionalLight>
  
-<TimeSensor DEF="TS_Sn" cycleInterval="5" loop="true"></TimeSensor>
+ <TimeSensor DEF="TS_Sn" cycleInterval="5" loop="true"></TimeSensor>
  <OrientationInterpolator DEF="OI_Sn" key="0, 0.5, 1" 
  keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
  </OrientationInterpolator>
